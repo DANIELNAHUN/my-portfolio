@@ -2,7 +2,7 @@
   <v-container>
     <div class="name">
         <div v-for="(letter, index) in newname" :key="index" class="letters">
-            <p v-for="i in n_repeat" :key="i">{{ letter.toUpperCase() }}</p>
+            <div v-for="i in n_repeat" :key="i" class="item">{{ letter.toUpperCase() }}</div>
         </div>
     </div>
     <div class="summary">
@@ -23,7 +23,7 @@ export default {
     },
     data(){
         return{
-            n_repeat: 10,
+            n_repeat: 9,
             newname:[]
         }
     },
@@ -49,7 +49,46 @@ export default {
         .letters{
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: start;
+            font-family: "Rubik Distressed", serif;
+            font-size: 45px;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .letters .item{
+            transition: .5s;
+            color: #0B2C3D;
+        }
+        .item:first-child{
+            color: #858D71;
+        }
+        .letters .item:hover{
+            color: #858D71;
+            filter: brightness(1);
+        }
+        .letters .item:hover + *{
+            filter: brightness(.6);
+            color: #858D71;
+        }
+        .letters .item:has(+ *:hover){
+            color: #858D71;
+            filter: brightness(.6);
+        }
+        .letters .item:hover + * + *{
+            filter: brightness(.4);
+            color: #858D71;
+        }
+        .letters .item:has(+ * + *:hover){
+            color: #858D71;
+            filter: brightness(.4);
+        }
+        .letters .item:hover + * + * + *{
+            filter: brightness(.3);
+            color: #858D71;
+        }
+        .letters .item:has(+ * + * + *:hover){
+            color: #858D71;
+            filter: brightness(.3);
         }
     }
 }
