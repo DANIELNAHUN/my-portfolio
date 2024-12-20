@@ -1,15 +1,24 @@
 <template>
-  <hello-world />
+  <v-container>
+    <div>
+      <MeViewVue/>
+    </div>
+    <!-- <div>
+      MIS PROYECTOS
+    </div>
+    <div>
+      Contacto
+    </div> -->
+  </v-container>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
+import MeViewVue from './MeView.vue'
   export default {
     name: 'Home',
 
     components: {
-      HelloWorld,
+      MeViewVue
     },
   }
 </script>
